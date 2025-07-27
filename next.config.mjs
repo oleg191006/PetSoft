@@ -1,4 +1,11 @@
+import { hostname } from 'os';
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+
+    images: {
+        domains: ['bytegrad.com'],
+    }
+};
 
 export default nextConfig;
