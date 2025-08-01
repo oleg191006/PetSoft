@@ -1,0 +1,9 @@
+const SearchForm = () => {
+  return (
+    <form className="w-full h-full bg-white/20">
+      <input type="text" className="w-full h-full bg-white/20" />
+    </form>
+  );
+};
+
+export default SearchForm;
