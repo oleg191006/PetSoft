@@ -2,6 +2,7 @@ import AppFooter from "@/components/app-footer/AppFooter";
 import AppHeader from "@/components/app-header/AppHeader";
 import BackgroundPattern from "@/components/background-pattern/BackgroundPattern";
 import PetContextProvider from "@/shared/context/pet-context-provider";
+import SearchContextProvider from "@/shared/context/search-context-provider";
 import { Pet } from "@/shared/types";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
@@ -18,7 +19,9 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
       <BackgroundPattern />
       <div className="flex flex-col max-w-[1050px] mx-auto px-4 min-h-screen">
         <AppHeader />
-        <PetContextProvider data={data}>{children}</PetContextProvider>
+        <SearchContextProvider>
+          <PetContextProvider data={data}>{children}</PetContextProvider>
+        </SearchContextProvider>
         <AppFooter />
       </div>
     </>
