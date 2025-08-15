@@ -2,6 +2,7 @@
 import usePetContext from "@/shared/hooks/use-pet-context";
 import { Pet } from "@/shared/types";
 import Image from "next/image";
+import PetButton from "../pet-button/PetButton";
 
 const PetDetails = () => {
   const { selectedPet } = usePetContext();
@@ -30,7 +31,7 @@ function EmptyView() {
 
 function TopBar({ selectedPet }: { selectedPet: Pet | undefined }) {
   return (
-    <div className="flex items-center bg-white px-8 py-5 border-b border-black/[0.08]">
+    <div className="flex items-center justify-between bg-white px-8 py-5 border-b border-black/[0.08]">
       <Image
         src={selectedPet?.imageUrl || ""}
         alt="selected pet image"
@@ -38,7 +39,14 @@ function TopBar({ selectedPet }: { selectedPet: Pet | undefined }) {
         height={75}
         className="w-[75px] h-[75px] rounded-full object-cover"
       />
-      <h2 className="3-xl font-semibold leading-7 ml-5">{selectedPet?.name}</h2>
+      <h2 className="text-3xl font-semibold leading-7 ml-5">
+        {selectedPet?.name}
+      </h2>
+
+      <div className="ml-auto flex gap-2">
+        <PetButton actionType="edit">Edit</PetButton>
+        <PetButton actionType="checkout">Checkout</PetButton>
+      </div>
     </div>
   );
 }
