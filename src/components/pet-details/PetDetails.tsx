@@ -29,7 +29,8 @@ function EmptyView() {
   return <p className="text-2xl font-medium">No pet selected</p>;
 }
 
-function TopBar({ selectedPet }: { selectedPet: Pet | undefined }) {
+function TopBar({ selectedPet }: { selectedPet: Pet }) {
+  const { handleDeletePet } = usePetContext();
   return (
     <div className="flex items-center justify-between bg-white px-8 py-5 border-b border-black/[0.08]">
       <Image
@@ -45,7 +46,12 @@ function TopBar({ selectedPet }: { selectedPet: Pet | undefined }) {
 
       <div className="ml-auto flex gap-2">
         <PetButton actionType="edit">Edit</PetButton>
-        <PetButton actionType="checkout">Checkout</PetButton>
+        <PetButton
+          actionType="checkout"
+          handleClick={() => handleDeletePet(selectedPet?.id)}
+        >
+          Checkout
+        </PetButton>
       </div>
     </div>
   );
