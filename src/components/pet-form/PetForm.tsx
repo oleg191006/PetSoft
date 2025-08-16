@@ -37,7 +37,6 @@ const PetForm = ({ actionType, onFormSubmission }: PetFormProps) => {
           <Input type="text" name="name" id="name" required />
         </div>
         <div className="space-y-1">
-          {" "}
           <Label htmlFor="ownerName">Owner name</Label>
           <Input type="text" name="ownerName" id="ownerName" required />
         </div>
