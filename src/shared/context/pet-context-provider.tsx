@@ -2,6 +2,7 @@
 
 import { createContext, useState } from "react";
 import { Pet } from "../types";
+import { addPet } from "@/actions/actions";
 
 type PetContextProviderProps = {
   data: Pet[];
@@ -32,14 +33,8 @@ const PetContextProvider = ({ data, children }: PetContextProviderProps) => {
     setSelectedPetId(id);
   };
 
-  const handleAddPet = (newPet: Omit<Pet, "id">) => {
-    setPets((prevPets) => [
-      ...prevPets,
-      {
-        ...newPet,
-        id: crypto.randomUUID(),
-      },
-    ]);
+  const handleAddPet = async (newPet: Omit<Pet, "id">) => {
+    await addPet(newPet);
   };
 
   const handleEditPet = (id: string, updatedPet: Omit<Pet, "id">) => {
