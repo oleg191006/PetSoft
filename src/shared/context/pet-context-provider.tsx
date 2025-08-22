@@ -34,7 +34,7 @@ const PetContextProvider = ({ data, children }: PetContextProviderProps) => {
   };
 
   const handleAddPet = async (newPet: Omit<Pet, "id">) => {
-    await addPet(newPet);
+    //await addPet(newPet);
   };
 
   const handleEditPet = (id: string, updatedPet: Omit<Pet, "id">) => {
